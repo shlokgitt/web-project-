@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* Booking Section */
+.book{
+    padding:60px 20px;
+    background:#ecf0f1;
+    text-align:center;
+}
+
+.book h2{
+    margin-bottom:10px;
+}
+
+.book p{
+    margin-bottom:30px;
+    color:#555;
+}
+
+.book-form{
+    max-width:450px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:10px;
+}
+
+.book-form label{
+    display:block;
+    text-align:left;
+    margin-bottom:5px;
+    font-weight:bold;
+}
+
+.book-form input,
+.book-form select{
+    width:100%;
+    padding:12px;
+    margin-bottom:15px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+.book-form button{
+    width:100%;
+    padding:12px;
+    background:#1e3799;
+    color:white;
+    border:none;
+    font-size:16px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.book-form button:hover{
+    background:#163172;
+}
+
+</style>
+<body>
+    
+</body>
+</html>
+
+
+
+<section id="book" class="book">
+    <h2>Book Your Trip</h2>
+    <p>Plan your journey in just a few simple steps</p>
+
+    <form class="book-form" action="confirmation.html" method="get">
+
+        <label>Full Name</label>
+        <input type="text" placeholder="Enter your name" required>
+
+        <label>Email Address</label>
+        <input type="email" placeholder="Enter your email" required>
+
+        <label>Select Destination</label>
+        <select required>
+            <option value="">Choose Destination</option>
+            <option>Paris</option>
+            <option>Dubai</option>
+            <option>Maldives</option>
+        </select>
+
+        <label>Travel Date</label>
+        <input type="date" required>
+
+        <label>Number of Travelers</label>
+        <div class="book-cta">
+    <h3>Ready to start your journey?</h3>
+    <a href="#book">
+        <button>Book Now</button>
+    </a>
+</div>
