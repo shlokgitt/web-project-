@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Flight Booking</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+    background:#eef2f7;
+    font-family: Arial, sans-serif;
+}
+
+header{
+    background:#1e3799;
+    color:white;
+    padding:15px;
+    text-align:center;
+}
+
+.container{
+    max-width:450px;
+    background:white;
+    margin:40px auto;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.1);
+}
+
+label{
+    font-weight:bold;
+    display:block;
+    margin-bottom:6px;
+}
+
+input, button{
+    width:100%;
+    padding:12px;
+    margin-bottom:15px;
+    border:1px solid #ccc;
+    border-radius:6px;
+}
+
+.calendar-title{
+    font-weight:bold;
+    margin:15px 0 5px;
+}
+
+button{
+    background:#1e3799;
+    color:white;
+    border:none;
+    font-size:16px;
+}
+/* Hide checkbox */
+#showFlights{
+    display:none;
+}
+
+/* Search button style */
+.search-btn{
+    display:block;
+    text-align:center;
+    background:#1e3799;
+    color:white;
+    padding:12px;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+/* Flight results hidden by default */
+.results{
+    display:none;
+    margin-top:20px;
+}
+
+/* Show results when checkbox is checked */
+#showFlights:checked ~ .results{
+    display:block;
+}
+
+/* Flight cards */
+.flight-card{
+    background:#f9fbff;
+    border:1px solid #ddd;
+    border-radius:8px;
+    padding:15px;
+    margin-bottom:15px;
+}
+
+.flight-card h3{
+    color:#1e3799;
+    margin-bottom:8px;
+}
+
+.flight-card button{
+    margin-top:10px;
+    background:#ff9f1a;
+    border:none;
+    padding:10px;
+    border-radius:6px;
+    width:100%;
+    cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>✈️ Flight Booking</h1>
+</header>
+
+<div class="container">
+    <form>
+      <form>
+    <label>From</label>
+    <input type="text" placeholder="Departure city" required>
+
+    <label>To</label>
+    <input type="text" placeholder="Destination city" required>
+
+    <div class="calendar-title">📅 Select Travel Dates</div>
+
+    <label>Departure Date</label>
+    <input type="date" required>
+
+    <label>Arrival Date</label>
+    <input type="date" required>
+
+    <label>Number of Passengers</label>
+    <input type="number" min="1" placeholder="Passengers" required>
+
+    <!-- Hidden checkbox -->
+    <input type="checkbox" id="showFlights">
+
+    <!-- Button -->
+    <label for="showFlights" class="search-btn">Search Flights</label>
+</form>
+
+<!-- Flight Results -->
+<div class="results">
+    <div class="flight-card">
+        <h3>✈️ TravelGo Air</h3>
+        <p>🕒 08:30 AM</p>
+        <p>💰 ₹5,500</p>
+        <button>Book Flight</button>
+    </div>
+
+    <div class="flight-card">
+        <h3>✈️ SkyJet Airlines</h3>
+        <p>🕒 12:45 PM</p>
+        <p>💰 ₹6,200</p>
+        <button>Book Flight</button>
+    </div>
+
+    <div class="flight-card">
+        <h3>✈️ BlueWings</h3>
+        <p>🕒 06:15 PM</p>
+        <p>💰 ₹5,900</p>
+        <button>Book Flight</button>
+    </div>
+</div>
+
+    </form>
+</div>
+
+</body>
+</html>

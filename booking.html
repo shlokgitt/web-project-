@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Book Your Trip</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    background:#f2f2f2;
+}
+
+header{
+    background:#1e3799;
+    color:white;
+    padding:15px;
+    text-align:center;
+}
+
+.booking-container{
+    max-width:450px;
+    background:white;
+    margin:40px auto;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.booking-container h2{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.booking-container label{
+    font-weight:bold;
+    display:block;
+    margin-bottom:5px;
+}
+
+.booking-container input,
+.booking-container select{
+    width:100%;
+    padding:12px;
+    margin-bottom:15px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+.booking-container button{
+    width:100%;
+    padding:12px;
+    background:#1e3799;
+    color:white;
+    border:none;
+    font-size:16px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.hotels{
+    margin-top:20px;
+    background:#ecf0f1;
+    padding:15px;
+    border-radius:8px;
+}
+
+.hotels h3{
+    margin-bottom:10px;
+}
+
+.hotels ul{
+    padding-left:20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>TravelGo Booking</h1>
+</header>
+
+<div class="booking-container">
+    <h2>Trip Details</h2>
+
+    <form>
+        <label>Destination</label>
+        <select required>
+            <option>Select Destination</option>
+            <option>Paris</option>
+            <option>Dubai</option>
+            <option>Maldives</option>
+            <option>Goa</option>
+        </select>
+
+        <label>Number of Days</label>
+        <input type="number" placeholder="Enter days" required>
+
+        <label>Mobile Number</label>
+        <input type="tel" placeholder="Enter mobile number" required>
+
+        <label>Number of Guests</label>
+        <input type="number" placeholder="Guests count" required>
+
+        <button type="submit">Submit Booking</button>
+    </form>
+
+    <div class="hotels">
+        <h3>Nearby Hotels</h3>
+        <ul>
+            <li>Hotel Grand Palace</li>
+            <li>Ocean View Resort</li>
+            <li>City Comfort Inn</li>
+            <li>Luxury Stay Suites</li>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>
