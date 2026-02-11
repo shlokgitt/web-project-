@@ -166,48 +166,47 @@ select:focus, input:focus {
 
 <div class="container">
     <h2>Book Your Hotel</h2>
-    <form action="confirmation.html" method="get"></form>
-<!-- Country -->
-<label>Select Country</label>
-<input list="countries" placeholder="Search country..." required>
-<!-- Choose Hotel -->
-<label>Choose Hotel</label>
-<select class="hotel-select" required>
-    <option value="">Select Hotel</option>
 
-    <!-- India -->
-    <option>Taj Mahal Palace – Mumbai, India</option>
-    <option>ITC Grand Chola – Chennai, India</option>
-    <option>The Oberoi – New Delhi, India</option>
-    <option>Leela Palace – Goa, India</option>
+    <!-- ✅ FORM START -->
+    <form action="confirmation.html" method="get">
 
-    <!-- United States -->
-    <option>The Plaza – New York, USA</option>
-    <option>Bellagio – Las Vegas, USA</option>
-    <option>The Beverly Hills Hotel – Los Angeles, USA</option>
-    <option>Fontainebleau – Miami, USA</option>
+        <!-- Country -->
+        <label>Select Country</label>
+        <input list="countries" name="country" placeholder="Search country..." required>
 
-    <!-- United Kingdom -->
-    <option>The Ritz – London, UK</option>
-    <option>The Savoy – London, UK</option>
-    <option>The Lowry – Manchester, UK</option>
+        <!-- Choose Hotel -->
+        <label>Choose Hotel</label>
+        <select name="hotel" required>
+            <option value="">Select Hotel</option>
+            <option>Taj Mahal Palace – Mumbai, India</option>
+            <option>ITC Grand Chola – Chennai, India</option>
+            <option>The Oberoi – New Delhi, India</option>
+            <option>Leela Palace – Goa, India</option>
+            <option>The Plaza – New York, USA</option>
+            <option>Burj Al Arab – Dubai, UAE</option>
+        </select>
 
-    <!-- France -->
-    <option>Hôtel Ritz – Paris, France</option>
-    <option>Le Meurice – Paris, France</option>
-    <option>Hotel Negresco – Nice, France</option>
+        <!-- Dates -->
+        <div class="calendar-title">
+            📅 <span>Select Stay Dates</span>
+        </div>
 
-    <!-- UAE -->
-    <option>Burj Al Arab – Dubai, UAE</option>
-    <option>Atlantis The Palm – Dubai, UAE</option>
-    <option>Emirates Palace – Abu Dhabi, UAE</option>
+        <label>Check-in Date</label>
+        <input type="date" name="checkin" required>
 
-    <!-- Japan -->
-    <option>Park Hyatt – Tokyo, Japan</option>
-    <option>Hotel Okura – Tokyo, Japan</option>
-    <option>Imperial Hotel – Osaka, Japan</option>
-</select>
+        <label>Check-out Date</label>
+        <input type="date" name="checkout" required>
 
+        <!-- Guests -->
+        <label>Number of Guests</label>
+        <input type="number" name="guests" min="1" placeholder="Enter number of guests" required>
+
+        <button type="submit">Search Hotels</button>
+
+    </form>
+    <!-- ✅ FORM END -->
+
+</div>
 
 <datalist id="countries">
 <option value="Afghanistan"><option value="Albania"><option value="Algeria">
@@ -272,30 +271,6 @@ select:focus, input:focus {
 <option value="Vietnam"><option value="Yemen"><option value="Zambia">
 <option value="Zimbabwe">
 </datalist>
-
-
-        
-        <!-- Dates -->
-        <div class="calendar-title">
-            📅 <span>Select Stay Dates</span>
-        </div>
-
-        <label>Check-in Date</label>
-        <input type="date" required>
-
-        <label>Check-out Date</label>
-        <input type="date" required>
-
-        <!-- Guests -->
-        <label>Number of Guests</label>
-        <input type="number" min="1" placeholder="Enter number of guests" required>
-
-           <button type="submit">Search Hotels</button>
-    </form>
-
-
-
-</div>
 
 </body>
 </html>
