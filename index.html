@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>TravelGo | Book Your Journey</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    
+    background:#1a1a2e;
+    color:#eee;
+      
+}
+
+/* Header */
+header{
+    background:#1e3799;
+    color:white;
+    padding:15px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+header h1{
+    font-size:26px;
+}
+
+nav a{
+    color:white;
+    margin-left:20px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* Hero Section */
+.hero{
+    height:70vh;
+    background:url("https://plus.unsplash.com/premium_photo-1754269248502-2d0531ab9234?fm=jpg&q=60&w=3000") center/cover;
+    color:white;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.hero h2{
+    font-size:42px;
+}
+
+.hero p{
+    font-size:18px;
+    margin:10px 0;
+}
+
+.hero button{
+    padding:12px 30px;
+    border:none;
+    background:#ff9f1a;
+    color:black;
+    font-size:16px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+/* Destinations */
+.destinations{
+    padding:60px 40px;
+    background:#0f3460;
+}
+
+.destinations h2{
+    text-align:center;
+    margin-bottom:40px;
+    color:#fff;
+}
+
+.card{
+    background:#16213e;
+    width:280px;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
+
+.card h3{
+    padding:15px;
+    color:#fff;
+}
+
+.card p{
+    padding:0 15px 20px;
+    color:#bbb;
+}
+
+/* Blog Section */
+.blog-section{
+    padding:60px 10%;
+    background:#1a1a2e;
+}
+
+.blog-section h2{
+    text-align:center;
+    margin-bottom:40px;
+    color:#fff;
+}
+
+.blog-card{
+    background:#16213e;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 4px 10px rgba(0,0,0,0.3);
+}
+
+.blog-card h3{
+    padding:15px;
+    color:#fff;
+}
+
+.blog-card p{
+    padding:0 15px 15px;
+    color:#bbb;
+}
+
+.blog-card a{
+    display:block;
+    padding:15px;
+    text-decoration:none;
+    color:#1d976c;
+    font-weight:bold;
+}
+
+/* Tips */
+    .tips-section{
+    background:#0f3460;
+    padding:60px 10%;
+}
+
+.tips-section h2{
+    text-align:center;
+    margin-bottom:40px;
+    color:#fff;
+}
+
+.tip-card{
+    background:#16213e;
+    padding:25px;
+    border-radius:10px;
+    text-align:center;
+    color:#eee;
+}
+
+.tip-card h3{
+    color:#fff;
+}
+
+/* Filter Destinations */
+.grid-destinations{
+    padding:0 10% 60px;
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap:30px;
+    background:#1a1a2e;
+}
+/* Popup */
+
+  .popup-content{
+    background:#16213e;
+    max-width:500px;
+    width:90%;
+    padding:25px;
+    border-radius:12px;
+    text-align:center;
+    position:relative;
+    color:#eee;
+}
+
+.popup-content h2{
+    color:#fff;
+}
+
+/* Footer */
+footer{
+    background:#16213e;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
+   
+.cards{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+}
+
+.blog-container{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap:30px;
+}
+
+.blog-card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+}
+
+.tips-container{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap:25px;
+}
+
+.filters{
+    text-align:center;
+    margin:40px 0;
+    padding:20px;
+    background:#1a1a2e;
+}
+
+.filters button{
+    padding:10px 18px;
+    margin:5px;
+    border:none;
+    border-radius:20px;
+    background:#1d976c;
+    color:white;
+    cursor:pointer;
+}
+
+.filters button:hover{
+    background:#14845c;
+}
+
+.grid-destinations .card{
+    width:100%;
+    transition: transform 0.3s;
+}
+
+.grid-destinations .card:hover{
+    transform: translateY(-8px);
+}
+
+.grid-destinations .card button{
+    padding:10px 20px;
+    margin:15px;
+    background:#1d976c;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.popup{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.6);
+    justify-content:center;
+    align-items:center;
+    z-index:1000;
+}
+
+.popup-content img{
+    width:100%;
+    border-radius:10px;
+    margin-bottom:15px;
+}
+
+.close{
+    position:absolute;
+    top:10px;
+    right:15px;
+    font-size:26px;
+    cursor:pointer;
+    color:#fff;
+}
+/* Responsive */
+@media(max-width:768px){
+    .hero h2{
+        font-size:32px;
+    }
+    nav{
+        display:none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>TravelGo</h1>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#destinations">Destinations</a>
+        <a href="#blog">Blog</a>
+        <a href="#trending">2025 Trending</a>
+        <a href="#filter">Explore</a>
+        <a href="contactpage.html">Contact</a>
+      
+    </nav>
+</header>
+
+<!-- HERO -->
+<section id="home" class="hero">
+    <h2>Discover the World</h2>
+    <p>Flights • Hotels • Holiday Packages</p>
+    <a href="bookingchoice.html" target="_blank">
+        <button type="button">Book Now</button>
+    </a>
+</section>
+
+<!-- POPULAR DESTINATIONS -->
+<section id="destinations" class="destinations">
+    <h2>Popular Destinations</h2>
+    <div class="cards">
+        <div class="card">
+            <img src="https://media.cntraveler.com/photos/58de89946c3567139f9b6cca/16:9/w_2560%2Cc_limit/GettyImages-468366251.jpg">
+            <h3>Paris</h3>
+            <p>Starting from ₹45,000</p>
+        </div>
+
+        <div class="card">
+            <img src="https://cdn.britannica.com/15/189715-050-4310222B/Dubai-United-Arab-Emirates-Burj-Khalifa-top.jpg">
+            <h3>Dubai</h3>
+            <p>Starting from ₹38,000</p>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+            <h3>Maldives</h3>
+            <p>Starting from ₹60,000</p>
+        </div>
+    </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog" class="blog-section">
+    <h2>Latest Blog Posts</h2>
+    <div class="blog-container">
+        <article class="blog-card">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+            <h3>Top 10 Beach Destinations in 2026</h3>
+            <p>Discover the most breathtaking beaches to relax and unwind.</p>
+            <a href="#">Read More →</a>
+        </article>
+
+        <article class="blog-card">
+            <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000">
+            <h3>Best Cities for Solo Travelers</h3>
+            <p>Safe, exciting, and budget-friendly cities for solo trips.</p>
+            <a href="#">Read More →</a>
+        </article>
+
+        <article class="blog-card">
+            <img src="https://images.unsplash.com/photo-1549880338-65ddcdfd017b">
+            <h3>Mountain Adventures</h3>
+            <p>Explore the world’s top mountain escapes.</p>
+            <a href="#">Read More →</a>
+        </article>
+    </div>
+</section>
+
+<!-- MOST TRAVELLED 2025 -->
+<section id="trending" style="padding:80px 20px; background:linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+    <div style="max-width:1200px; margin:0 auto;">
+        <div style="text-align:center; margin-bottom:60px;">
+            <h2 style="font-size:2.5rem; color:#fff; margin-bottom:15px; font-weight:600;">🌍 Most Travelled Destinations of 2025</h2>
+            <p style="font-size:1.1rem; color:rgba(255, 255, 255, 0.9); max-width:600px; margin:0 auto;">Discover where the world traveled this year - from cultural capitals to trending hotspots</p>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:30px; margin-bottom:40px;">
+            <!-- Barcelona -->
+            <div style="background:#fff; border-radius:15px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,0.2); position:relative; cursor:pointer; transition:transform 0.3s;" onclick="openTrendingPopup('Barcelona', 'Spain', 'https://images.unsplash.com/photo-1583422409516-2895a77efded?w=800', 'Sagrada Familia, Park Güell, Gothic Quarter, La Rambla, Camp Nou Stadium', 'Gaudí architecture, tapas and paella, FC Barcelona, Mediterranean beaches, vibrant nightlife')">
+                <span style="position:absolute; top:15px; left:15px; background:rgba(255, 255, 255, 0.95); color:#667eea; font-weight:bold; padding:8px 15px; border-radius:20px; font-size:0.9rem; box-shadow:0 4px 15px rgba(0,0,0,0.2);">#1 Most Booked</span>
+                <img src="https://images.unsplash.com/photo-1583422409516-2895a77efded?w=800" style="width:100%; height:220px; object-fit:cover;">
+                <div style="padding:25px;">
+                    <h3 style="font-size:1.5rem; font-weight:600; margin-bottom:10px;">Barcelona</h3>
+                    <p style="font-size:0.95rem; color:#666; margin-bottom:15px;">Spain</p>
+                    <p style="font-size:0.9rem; color:#555; line-height:1.6;">Topped global bookings with its perfect blend of Gaudí architecture, Mediterranean beaches, and vibrant culture.</p>
+                    <button style="margin-top:15px; padding:10px 20px; background:#667eea; color:white; border:none; border-radius:20px; cursor:pointer;">Learn More →</button>
+                </div>
+            </div>
+
+            <!-- Paris -->
+            <div style="background:#fff; border-radius:15px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,0.2); position:relative; cursor:pointer; transition:transform 0.3s;" onclick="openTrendingPopup('Paris', 'France', 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800', 'Eiffel Tower, Louvre Museum, Notre-Dame Cathedral, Arc de Triomphe, Versailles Palace', 'Romance and art, croissants and wine, fashion capital, Seine River cruises, café culture')">
+                <span style="position:absolute; top:15px; left:15px; background:rgba(255, 255, 255, 0.95); color:#667eea; font-weight:bold; padding:8px 15px; border-radius:20px; font-size:0.9rem; box-shadow:0 4px 15px rgba(0,0,0,0.2);">#1 Arrivals</span>
+                <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800" style="width:100%; height:220px; object-fit:cover;">
+                <div style="padding:25px;">
+                    <h3 style="font-size:1.5rem; font-weight:600; margin-bottom:10px;">Paris</h3>
+                    <p style="font-size:0.95rem; color:#666; margin-bottom:15px;">France</p>
+                    <p style="font-size:0.9rem; color:#555; line-height:1.6;">Maintained its crown with 18M+ visitors, enhanced by Notre Dame's reopening.</p>
+                    <button style="margin-top:15px; padding:10px 20px; background:#667eea; color:white; border:none; border-radius:20px; cursor:pointer;">Learn More →</button>
+                </div>
+            </div>
+
+            <!-- London -->
+            <div style="background:#fff; border-radius:15px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,0.2); position:relative; cursor:pointer; transition:transform 0.3s;" onclick="openTrendingPopup('London', 'United Kingdom', 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800', 'Big Ben, Tower Bridge, Buckingham Palace, British Museum, London Eye', 'Royal heritage, West End theatre, afternoon tea, red double-decker buses, diverse food scene')">
+                <span style="position:absolute; top:15px; left:15px; background:rgba(255, 255, 255, 0.95); color:#667eea; font-weight:bold; padding:8px 15px; border-radius:20px; font-size:0.9rem; box-shadow:0 4px 15px rgba(0,0,0,0.2);">#1 Searched</span>
+                <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800" style="width:100%; height:220px; object-fit:cover;">
+                <div style="padding:25px;">
+                    <h3 style="font-size:1.5rem; font-weight:600; margin-bottom:10px;">London</h3>
+                    <p style="font-size:0.95rem; color:#666; margin-bottom:15px;">United Kingdom</p>
+                    <p style="font-size:0.9rem; color:#555; line-height:1.6;">The most searched-for destination globally, blending royal heritage with cutting-edge entertainment.</p>
+                    <button style="margin-top:15px; padding:10px 20px; background:#667eea; color:white; border:none; border-radius:20px; cursor:pointer;">Learn More →</button>
+                </div>
+            </div>
+
+            <!-- Tokyo -->
+            <div style="background:#fff; border-radius:15px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,0.2); position:relative; cursor:pointer; transition:transform 0.3s;" onclick="openTrendingPopup('Tokyo', 'Japan', 'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800', 'Senso-ji Temple, Tokyo Skytree, Shibuya Crossing, Meiji Shrine, Tsukiji Fish Market', 'Sushi and ramen, cherry blossoms, anime culture, cutting-edge technology, ancient temples')">
+                <span style="position:absolute; top:15px; left:15px; background:rgba(255, 255, 255, 0.95); color:#667eea; font-weight:bold; padding:8px 15px; border-radius:20px; font-size:0.9rem; box-shadow:0 4px 15px rgba(0,0,0,0.2);">#2 Global</span>
+                <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800" style="width:100%; height:220px; object-fit:cover;">
+                <div style="padding:25px;">
+                    <h3 style="font-size:1.5rem; font-weight:600; margin-bottom:10px;">Tokyo</h3>
+                    <p style="font-size:0.95rem; color:#666; margin-bottom:15px;">Japan</p>
+                    <p style="font-size:0.9rem; color:#555; line-height:1.6;">Captivated travelers with its seamless fusion of ancient temples and futuristic technology.</p>
+                    <button style="margin-top:15px; padding:10px 20px; background:#667eea; color:white; border:none; border-radius:20px; cursor:pointer;">Learn More →</button>
+                </div>
+            </div>
+
+            <!-- Osaka -->
+            <div style="background:#fff; border-radius:15px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,0.2); position:relative; cursor:pointer; transition:transform 0.3s;" onclick="openTrendingPopup('Osaka', 'Japan', 'https://images.unsplash.com/photo-1590559899731-a382839e5549?w=800', 'Osaka Castle, Dotonbori District, Universal Studios Japan, Osaka Aquarium, Sumiyoshi Taisha Shrine', 'Street food paradise, takoyaki and okonomiyaki, vibrant nightlife, shopping districts, comedy culture')">
+                <span style="position:absolute; top:15px; left:15px; background:rgba(255, 255, 255, 0.95); color:#667eea; font-weight:bold; padding:8px 15px; border-radius:20px; font-size:0.9rem; box-shadow:0 4px 15px rgba(0,0,0,0.2);">#1 Trending</span>
+                <img src="https://images.unsplash.com/photo-1590559899731-a382839e5549?w=800" style="width:100%; height:220px; object-fit:cover;">
+                <div style="padding:25px;">
+                    <h3 style="font-size:1.5rem; font-weight:600; margin-bottom:10px;">Osaka</h3>
+                    <p style="font-size:0.95rem; color:#666; margin-bottom:15px;">Japan</p>
+                    <p style="font-size:0.9rem; color:#555; line-height:1.6;">Named the world's fastest-growing destination with incredible food and nightlife.</p>
+                    <button style="margin-top:15px; padding:10px 20px; background:#667eea; color:white; border:none; border-radius:20px; cursor:pointer;">Learn More →</button>
+                </div>
+            </div>
+
+            <!-- Bangkok -->
+            <div style="background:#fff; border-radius:15px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,0.2); position:relative; cursor:pointer; transition:transform 0.3s;" onclick="openTrendingPopup('Bangkok', 'Thailand', 'https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=800', 'Grand Palace, Wat Arun, Wat Pho, Chatuchak Market, Khao San Road', 'Street food heaven, ornate temples, floating markets, Thai massage, vibrant nightlife and shopping')">
+                <span style="position:absolute; top:15px; left:15px; background:rgba(255, 255, 255, 0.95); color:#667eea; font-weight:bold; padding:8px 15px; border-radius:20px; font-size:0.9rem; box-shadow:0 4px 15px rgba(0,0,0,0.2);">30M+ Visitors</span>
+                <img src="https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=800" style="width:100%; height:220px; object-fit:cover;">
+                <div style="padding:25px;">
+                    <h3 style="font-size:1.5rem; font-weight:600; margin-bottom:10px;">Bangkok</h3>
+                    <p style="font-size:0.95rem; color:#666; margin-bottom:15px;">Thailand</p>
+                    <p style="font-size:0.9rem; color:#555; line-height:1.6;">Led Asia with 30.3M arrivals, offering temples, street food, and vibrant nightlife.</p>
+                    <button style="margin-top:15px; padding:10px 20px; background:#667eea; color:white; border:none; border-radius:20px; cursor:pointer;">Learn More →</button>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align:center; margin-top:40px; padding:20px; background:rgba(255, 255, 255, 0.1); border-radius:10px;">
+            <p style="color:rgba(255, 255, 255, 0.9); font-size:0.9rem;">📊 Data from Tripadvisor, eDreams ODIGEO, and global tourism boards (2025)</p>
+        </div>
+    </div>
+</section>
+<!-- TIPS -->
+<section class="tips-section">
+    <h2>Essential Travel Tips</h2>
+    <div class="tips-container">
+        <div class="tip-card">
+            <h3>🧳 Pack Smart</h3>
+            <p>Carry only essentials and leave room for souvenirs.</p>
+        </div>
+        <div class="tip-card">
+            <h3>💰 Save Money</h3>
+            <p>Book flights early and use local transport.</p>
+        </div>
+        <div class="tip-card">
+            <h3>📄 Keep Documents Safe</h3>
+            <p>Always carry digital copies of your documents.</p>
+        </div>
+        <div class="tip-card">
+            <h3>🌍 Respect Local Culture</h3>
+            <p>Follow local customs to enhance your experience.</p>
+        </div>
+    </div>
+</section>
+
+<!-- FILTER DESTINATIONS -->
+<section id="filter">
+    <div class="filters">
+        <button onclick="filterDest('all')">All</button>
+        <button onclick="filterDest('beach')">Beach</button>
+        <button onclick="filterDest('city')">City</button>
+        <button onclick="filterDest('mountain')">Mountain</button>
+        <button onclick="filterDest('luxury')">Luxury</button>
+    </div>
+
+    <section class="grid-destinations">
+        <div class="card beach">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+            <h3>Maldives</h3>
+            <p>Crystal-clear waters and luxury resorts.</p>
+            <button onclick="openPopup('Maldives','Tropical paradise with white-sand beaches.','https://images.unsplash.com/photo-1507525428034-b723cf961d3e')">View</button>
+        </div>
+
+        <div class="card city">
+            <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34">
+            <h3>Paris</h3>
+            <p>City of love and iconic landmarks.</p>
+            <button onclick="openPopup('Paris','Art, culture and Eiffel Tower.','https://images.unsplash.com/photo-1502602898657-3e91760cbb34')">View</button>
+        </div>
+
+        <div class="card mountain">
+            <img src="https://images.unsplash.com/photo-1549880338-65ddcdfd017b">
+            <h3>Swiss Alps</h3>
+            <p>Snowy peaks and adventure.</p>
+            <button onclick="openPopup('Swiss Alps','Perfect for skiing and hiking.','https://images.unsplash.com/photo-1549880338-65ddcdfd017b')">View</button>
+        </div>
+
+        <div class="card luxury">
+            <img src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad">
+            <h3>Dubai</h3>
+            <p>Luxury shopping and desert safaris.</p>
+            <button onclick="openPopup('Dubai','Luxury, skyscrapers, and desert adventures.','https://images.unsplash.com/photo-1505761671935-60b3a7427bad')">View</button>
+        </div>
+    </section>
+</section>
+
+<!-- POPUP -->
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <img id="popup-img">
+        <h2 id="popup-title"></h2>
+        <p id="popup-text"></p>
+    </div>
+</div>
+<!-- TRENDING DESTINATION POPUP -->
+<div id="trending-popup" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); justify-content:center; align-items:center; z-index:1000; overflow-y:auto;">
+    <div style="background:white; max-width:600px; width:90%; margin:20px; padding:0; border-radius:15px; position:relative; max-height:90vh; overflow-y:auto;">
+        <span onclick="closeTrendingPopup()" style="position:absolute; top:15px; right:20px; font-size:28px; cursor:pointer; z-index:10; color:white; text-shadow:0 2px 4px rgba(0,0,0,0.5);">&times;</span>
+        
+        <img id="trending-popup-img" style="width:100%; height:250px; object-fit:cover; border-radius:15px 15px 0 0;">
+        
+        <div style="padding:30px;">
+            <h2 id="trending-popup-title" style="font-size:2rem; margin-bottom:5px; color:#333;"></h2>
+            <p id="trending-popup-country" style="font-size:1.1rem; color:#667eea; margin-bottom:25px; font-weight:600;"></p>
+            
+            <div style="margin-bottom:25px;">
+                <h3 style="font-size:1.3rem; color:#333; margin-bottom:15px; display:flex; align-items:center;">
+                    <span style="font-size:1.5rem; margin-right:10px;">📍</span> Top Things To Do
+                </h3>
+                <ul id="trending-popup-todo" style="list-style:none; padding:0; line-height:2;">
+                </ul>
+            </div>
+            
+            <div>
+                <h3 style="font-size:1.3rem; color:#333; margin-bottom:15px; display:flex; align-items:center;">
+                    <span style="font-size:1.5rem; margin-right:10px;">⭐</span> Famous For
+                </h3>
+                <ul id="trending-popup-famous" style="list-style:none; padding:0; line-height:2;">
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    © 2026 TravelGo | All Rights Reserved
+</footer>
+
+<script>
+function filterDest(category) {
+    let cards = document.querySelectorAll('.grid-destinations .card');
+    cards.forEach(card => {
+        if (category === 'all' || card.classList.contains(category)) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+
+function openPopup(title, text, img) {
+    document.getElementById('popup-title').innerText = title;
+    document.getElementById('popup-text').innerText = text;
+    document.getElementById('popup-img').src = img;
+    document.getElementById('popup').style.display = 'flex';
+}
+
+function closePopup() {
+    document.getElementById('popup').style.display = 'none';
+
+}
+function openTrendingPopup(title, country, img, thingsToDo, famousFor) {
+    document.getElementById('trending-popup-title').innerText = title;
+    document.getElementById('trending-popup-country').innerText = country;
+    document.getElementById('trending-popup-img').src = img;
+    
+    // Parse and display things to do
+    const todoList = document.getElementById('trending-popup-todo');
+    todoList.innerHTML = '';
+    thingsToDo.split(', ').forEach(item => {
+        const li = document.createElement('li');
+        li.innerHTML = `<span style="color:#667eea; margin-right:8px;">✓</span><span style="color:#333;">${item}</span>`;
+        li.style.padding = '8px 0';
+        li.style.borderBottom = '1px solid #f0f0f0';
+        todoList.appendChild(li);
+    });
+    
+    // Parse and display famous for
+    const famousList = document.getElementById('trending-popup-famous');
+    famousList.innerHTML = '';
+    famousFor.split(', ').forEach(item => {
+        const li = document.createElement('li');
+        li.innerHTML = `<span style="color:#ff9f1a; margin-right:8px;">★</span><span style="color:#333;">${item}</span>`;
+        li.style.padding = '8px 0';
+        li.style.borderBottom = '1px solid #f0f0f0';
+        famousList.appendChild(li);
+    });
+    
+    document.getElementById('trending-popup').style.display = 'flex';
+}
+function closeTrendingPopup() {
+    document.getElementById('trending-popup').style.display = 'none';
+}
+
+</script>
+
+
+
+
+
+</body>
+</html>
